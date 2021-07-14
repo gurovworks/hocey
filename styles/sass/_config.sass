@@ -1,0 +1,431 @@
+// USER VARIABLES SECTION
+$hover: #d89808
+$accent: #fff // Accent Color #ffc818 
+$fontsize: 16px // Body Font Size
+$textcolor: #333 // Text Color
+$lineheight: 1.65 // Document Line Height
+$userfont: roboto-oh5, Montserrat sans-serif // User Font Family
+$systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+$dark: #080808
+// Bootstrap compatible gutter variable => $gutter
+$grid-gutter-width: 30px
+$gutter: $grid-gutter-width
+
+// IMPORT SECTION
+
+@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
+@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
+@import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
+// @import 'node_modules/bootstrap/scss/utilities/_sizing.scss' // Optional Bootstrap Utilites
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		src: url($furl) format('woff2','ttf')
+
+@include font('roboto-oh5', normal, 400, '../fonts/roboto-regular-webfont.woff2')
+@include font('roboto-oh5', italic, 400, '../fonts/roboto-italic-webfont.woff2')
+@include font('roboto-oh5', normal, 700, '../fonts/roboto-bold-webfont.woff2')
+@include font('roboto-oh5', italic, 700, '../fonts/roboto-bolditalic-webfont.woff2')
+@include font('roboto-oh5', italic, 700, '../fonts/roboto-bolditalic-webfont.woff2')
+@include font('roboto-oh5', italic, 700, '../fonts/roboto-bolditalic-webfont.woff2')
+@include font('roboto-oh5', regular, 400, '../fonts/Montserrat-Regular.ttf')
+@include font('roboto-oh5', bold, 700, '../fonts/Montserrat-Bold.ttf')
+
+// GENERAL DOCUMENT STYLES
+@media screen and ( max-width:1000px  )
+	.top-line_text
+		display: none
+	.top-header_social
+		display: none
+	.top-line_logo
+		margin: 0 auto
+@media screen and ( max-width:465px  )
+	.participants_top
+		p
+			display: none	
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: $accent
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+body
+	font-family: $userfont
+	font-size: $fontsize
+	line-height: $lineheight
+	color: $textcolor
+	min-width: 320px
+	position: relative
+	overflow-x: hidden
+.top-header
+	width: 100%
+	height: auto
+	background-color: $dark
+	&_social
+			font-size: 28px
+			color: $accent
+			i
+				&:hover
+					color: rgb( $accent, .7)
+					transition: .3s ease
+	&_img
+		display: flex
+		justify-content: center
+		align-items: center
+		height: 84vh
+		width: 100%
+		background-size: cover
+		background-repeat: no-repeat
+		background-position: center center
+		position: relative
+		z-index: 1
+		&::before
+			position: absolute
+			content: ""
+			width: 100%
+			height: 100%
+			background: $dark
+			opacity: 0.6
+			z-index: 1
+	&_text
+		position: relative
+		line-height: 1
+		z-index: 2
+		text-align: center
+		color: $accent
+		h2
+			font-weight: bold
+			font-size: 60px
+		span
+			font-size: 36px
+.top-header_social
+	cursor: pointer
+.header_btn
+	width: 200px
+	margin: 35px auto
+	padding: 15px
+	background-color: $dark
+	opacity: 0.84
+	text-transform: uppercase
+	&:hover
+		background-color: $dark
+		opacity: 1
+		transition: .3s ease
+	a
+		color: $accent
+		text-decoration: none
+	.hover
+		color: rgb( $accent, .7)
+		transiton: .3s ease
+.top-line
+	display: flex
+	justify-content: space-between
+	align-items: center
+	h2
+		font-size: 28px
+	&_logo
+		img
+			height: 100px
+			width: auto
+			padding: 10px 0px
+	&_text
+		color: $accent
+		line-height: 0.2
+	span
+		padding-left: 20px
+		font-size: 12px
+.about
+	padding-top: 50px
+	p
+		text-align: justify
+		font-size: 18px
+.about_semen
+	img
+		object-fit: contain
+		width: 100%
+		height: 500px
+	h4
+		text-align: center
+		font-size: 24px
+		padding-top: 10px
+.participants
+	padding-top: 50px
+	h2
+		padding: 0px
+		margin: 0px
+	p
+		padding: 0px
+		margin: 0px
+.participants_top
+	display: flex
+	justify-content: space-between
+	align-items: center
+	padding: 0px
+.owl-nav
+		position: absolute
+		top: 0
+		width: 100%
+		> div
+			width: 64px
+			height: 64px
+			opacity: .7
+			background-color: $dark
+			position: absolute
+			text-align: center
+			line-height: 64px
+			font-size: 26px
+			&.owl-prev
+				line-height: 67px
+				left: 0
+				color: $accent
+				padding-right: 3px
+			&.owl-next
+				right: 0
+				line-height: 67px
+				padding-left: 3px
+				color: $accent
+.owl-carousel
+	margin-top: 50px
+.owl-carousel_item
+	position: relative
+	text-align: center
+	padding-bottom: 10px
+	img
+		margin-bottom: 10px
+	a
+		margin: 5px 5px
+		padding: 5px 20px 5px 20px
+		background-color: $dark
+		opacity: .9
+		color: $accent
+		text-transform: uppercase
+		text-decoration: none
+		&:hover
+			color: $accent
+			background-color: $dark
+			opacity: 1
+			transition: .3s ease
+.tournament
+	margin-top: 50px
+//Acordion
+.accordion-button:not(.collapsed)
+	color: $dark
+.accordion-button
+	height: 100px
+.accordion-head
+	display: flex
+	align-items: center
+	justify-content: space-between
+	font-size: 36px
+	p
+		padding: 0px 10px
+		margin: 0px
+		font-size: 16px
+	&_location, &_day, &_time
+		display: flex
+		align-items: center
+	&_day
+		margin-left: 25px
+		margin-right: 25px
+@media screen and ( max-width:465px  )
+	.accordion-head_time
+		display: none
+	.accordion-head
+		p
+			padding: 0 5px
+.accordion
+	margin-top: 50px
+.accordion-body
+	h2
+		padding-top: 25px
+		padding-bottom: 25px
+
+// footer
+
+.main-footer
+	margin-top: 50px
+	background-color: $dark
+	height: 100px
+	width: 100%
+	color: $accent
+	&_copyr
+		width: 200px
+		line-height: 0.1
+		font-size: 14px
+		font-weight: 200
+		h2
+			font-size: 18px
+	&_ask
+		width: 140px
+		a
+			color: $accent
+			text-decoration: none
+			&:hover
+				color: rgb( $accent, .7)
+				transition: .3s ease
+@media screen and ( max-width: 370px )
+	.main-footer_copyr
+		display: none
+	.main-footer_ask
+		margin: 0 auto
+	.main-footer
+		margin-top: 25px
+.flex-wrapper
+	display: flex
+	justify-content: space-between
+	height: 100px
+	align-items: center
+.match-shet
+	display: flex
+	align-items: center
+	text-align: center
+	img
+		object-fit: contain
+		width: 100%
+.match-shet
+	position: relative
+	&:hover
+		&::before
+			display: flex
+			align-items: center
+			justify-content: center
+			content: "СТАТИСТИКА"
+			position: absolute
+			width: 100%
+			height: 100%
+			background-color: $dark
+			opacity: 0.8
+			z-index: 1
+			font-size: 28px
+			font-weight: 600
+			cursor: pointer
+			color: $accent
+
+.status_comand
+	min-width: 70px
+	h4
+		text-align: center
+.youtube_video
+	width: 100%
+	height: 520px
+	margin: 0 auto
+@media screen and ( max-width: 990px  )
+	.youtube_video
+		height: 350px
+@media screen and ( max-width: 520px  )
+	.youtube_video
+		height: 250px
+@media screen and ( max-width: 320px  )
+	.youtube_video
+		height: 150px
+.bg_child_item
+	width: 100%
+	background-size: cover
+	background-position: center center
+	background-repeat: no-repeat
+	--bs-gutter-x: 0.5rem
+	cursor: pointer
+.img_child
+	img
+		object-fit: contain
+		width: 100%
+.child_name
+	p
+		padding: 0px
+		margin: 0px
+		color: $accent
+		text-align: center
+		font-size: 18px
+.best_title
+	font-size: 18px
+	font-weight: bold
+	color: $accent
+	text-align: center
+	text-transform: uppercase
+	padding: 20px 0px
+.child_statik
+	line-height: 80px
+	color: $accent
+	text-align: center
+.child_static_item
+	height: 50%
+	border-top: 1px solid $accent
+	border-right: 1px solid $accent
+.child_static_item_1
+	border-right: 1px solid $accent
+//popup-forms
+.form-botstrap
+	margin: 0 auto
+.mfp-close-btn-in .mfp-close
+	color: #fff
+.center 
+	padding: 50px 50px
+	background: #fff
+	border-radius: 10px
+
+.center h1
+	max-width: 320px
+	margin: 0 auto
+	font-size: 2em
+	padding: 10px
+	color: #000
+	margin-bottom: 60px
+	font-weight: bold
+	padding-left: 10px
+	border-left: 1px solid #000
+
+.center .inputbox 
+	position: relative
+	max-width: 320px
+	margin: 0 auto
+	height: 50px
+	margin-bottom: 50px
+
+.center .inputbox input 
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	border: 2px solid #000
+	outline: none
+	background: none
+	padding: 10px
+	border-radius: 10px
+	font-size: 1.2em
+
+.center .inputbox:last-child 
+	margin-bottom: 0
+
+.center .inputbox span 
+	position: absolute
+	top: 14px
+	left: 20px
+	font-size: 1em
+	transition: 0.6s
+	font-family: sans-serif
+
+.center .inputbox input:focus ~ span,
+.center .inputbox input:valid ~ span 
+	transform: translateX(-13px) translateY(-35px)
+	font-size: 1em
+
+.center .inputbox [type="button"] 
+	background: black
+	color: #fff
+	border: #fff
+
+.center .inputbox:hover [type="button"] 
+	background: linear-gradient(45deg, yellow, gray)
